@@ -1,0 +1,37 @@
+### Usuarios estandar
+GET http://localhost:2000/usuarios/estandar HTTP/1.1
+###
+POST http://localhost:2000/usuarios/estandar HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 6,
+    "nombre" : "Pepe Alvarez",
+    "edad" : 30,
+    "seguidores":0
+}
+###
+PUT http://localhost:2000/usuarios/estandar/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "nombre": "Josefina Carolina Alvarez",
+    "edad": 29,
+    "seguidores": 612
+}
+###
+PATCH http://localhost:2000/usuarios/estandar/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "seguidores": 856
+}
+
+###
+DELETE http://localhost:2000/usuarios/estandar/2 HTTP/1.1
+
+
+###Usuarios Premium
+
+
