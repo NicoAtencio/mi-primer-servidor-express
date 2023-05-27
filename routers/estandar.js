@@ -1,5 +1,4 @@
 const express = require('express');
-const { usuarios } = require('../datos/usuarios.js');
 const {estandar} = require('../datos/usuarios.js').usuarios;
 
 const routerEstandar = express.Router();
@@ -17,7 +16,7 @@ routerEstandar.get('/', (req,res) => {
 routerEstandar.get('/:id', (req,res) => {
     const id = req.params.id;
     const resultado = estandar.filter(usuario => usuario.id == id);
-    if(resultado.length === 0) return res.status(204).send(`El identificardor ${id} no esta asociado a un usuario.`);
+    if(resultado.length === 0) return res.status(404).send(`El identificardor ${id} no esta asociado a un usuario.`);
     res.send(resultado)
 });
 
@@ -52,9 +51,10 @@ routerEstandar.delete('/:id', (req,res) => {
         estandar.splice(indice,1);
         res.send(estandar)
     }else{
-        res.status(204).send(`No existe el usuario con el identificador ${id}`)
+        res.status(404).send(`No existe el usuario con el identificador ${id}`)
     }
 })
 
 
 module.exports = routerEstandar;
+module.exports.ordenarPorCantidadDeSeguidores = ordenarPorCantidadDeSeguidores;
